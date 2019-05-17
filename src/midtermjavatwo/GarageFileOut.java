@@ -5,8 +5,7 @@ import java.io.*;
 
 /**
  * This pushes the parking Garage file out
- * @param out makes the writer null
- * @param fileName the fileName for the buffered reader
+ *
  * @throws FileNotFoundException if the file has an open error, prints files name
  */
 public class GarageFileOut {
@@ -25,9 +24,8 @@ public class GarageFileOut {
     }
 
     /**
-    * This writes to the file
-    * @param out
-    * @param fileName the fileName for the buffered reader
+    * This writes each line to the File
+    *
     * @throws FileNotFoundException if the file has an open error, prints files name
     */
     public void fileWrite(String line) {
@@ -41,7 +39,7 @@ public class GarageFileOut {
 
     /**
     * This closes out the file
-    * @param out
+    *
     * @throws FileNotFoundException if the file has an open error, prints files name
     */
     public void fileClose() {

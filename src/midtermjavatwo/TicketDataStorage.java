@@ -11,10 +11,9 @@ public class TicketDataStorage {
 
     private TicketDataStorage(){}
 
-    /**
+    /**This will read in a new line of a text document and turn them into TotalPayments objects
     * 
-    * @param line
-    * @param totalPayments
+    * @param line String
     */
     public void addExistingTotal(String line)
     {
@@ -28,9 +27,7 @@ public class TicketDataStorage {
 
     /**
     * checks to see if the ticket type is found in the arrayList of tickets
-    * @param ticket ArrayList holding all the information about the parked cars
-    * @param ticketTypeFound boolean to check again for the loop
-    * @param totalPayments check to see if all cars have paid for their tickets (affects lost tickets)
+    * @param tickets ArrayList<Ticket>
     * @return true or false depending on the loop
     */
     public void addTotals(ArrayList<Ticket> tickets)
@@ -67,7 +64,7 @@ public class TicketDataStorage {
     /**
     * checks to see if total payments is empty (created to check lost tickets-if there are still tickets
     * this means the customer is being kicked out and must pay the lost ticket fee)
-    * @param totalPayments holds all the information about the tickets to be able to check for a lost ticket
+    *
     * @return true or false depending on what is still in totalPayments
     */
     public boolean hasTotal()
@@ -81,7 +78,7 @@ public class TicketDataStorage {
 
     /**
     * this writes the total payments to the file
-    * @param totalPayments all the recorded payments (created to check lost tickets)
+    * @param index int
     * @return line returns what has been written to total payments
     */
     public String writeToFile(int index)
@@ -91,9 +88,11 @@ public class TicketDataStorage {
         return line;
     }
 
+    public ArrayList<TotalPayments> getTotalPaymentsArray(){return totalPayments;}
+
     /**
     * creates a singleton design pattern for the garage
-    * @param ticketDataStorage where the all the information for the tickets are stored
+    *
     * @return a new Garage for the customer to use
     */
     public static TicketDataStorage getInstance()

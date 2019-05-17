@@ -8,8 +8,7 @@ import java.io.IOException;
 
 /**
  * This creates the buffered reader for the Garage
- * @param in 
- * @param fileName creates the fileName for the buffered reader
+ *
  */
 public class GarageFileIn {
 
@@ -18,7 +17,8 @@ public class GarageFileIn {
 
 /**
  * This creates puts the file into the reader
- * @param fileName creates the fileName for the buffered reader
+ * This is a constructor
+ * @param fileName opens the File with the name fileName for the buffered reader
  * @throws FileNotFoundException if the file has an open error, prints files name
  */
     public GarageFileIn(String fileName) {
@@ -31,9 +31,8 @@ public class GarageFileIn {
         }
     }
     /**
-     * Sam, I honestly can't remember what this does
-     * @param in
-     * @parm fileName creates the fileName for the buffered reader
+     * This reads each line of the file
+     *
      * @exception FileNotFoundException e if the file has an open error, prints files name
      * @return null 
      */
@@ -46,9 +45,9 @@ public class GarageFileIn {
             return null;
         }
     }
-    /**I hate file readers. That's what this does right?
-     * @param in which is something to do with the reader
-     * @throws the freaking same exception
+    /**This closes the file after we are done with it.
+     *
+     *
      * 
      */
     public void fileClose() {

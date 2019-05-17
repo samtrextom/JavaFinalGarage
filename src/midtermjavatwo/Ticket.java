@@ -16,9 +16,8 @@ public class Ticket {
     /**
     * constructing ticket to get the data of date and time
     * whenever we make a new car, it sets it to the whatever the current time it
-    * @param randHour this sets the random time for when the car comes into the garage
-    * @param enterTime is the assigned the random time
-    * @param ID is assigned the value of zero
+     * the initial constructor creates a random enterTime that is set to enter during morning hours 7am - 1pm
+    *
     */
 
     public Ticket()
@@ -29,18 +28,32 @@ public class Ticket {
         this.enterTime = LocalTime.of(randHour, 0);
         this.ID = 0;
     }
-    
-    /**
-     * sets the Ticket
-     * @param ID sets the ID to int i
-     * @param enterTime sets to the localTime of t
-     */
-    public Ticket(int i, LocalTime t)
+
+    public Ticket(double total, PaymentType paymentType)
     {
-        this.ID = i;
-        this.enterTime = t;
+        this.total = total;
+        this.paymentType = paymentType;
     }
-    
+
+    public Ticket(LocalTime in, PaymentType paymentType)
+    {
+        this.enterTime = in;
+        this.paymentType = paymentType;
+    }
+
+    public Ticket(LocalTime in,LocalTime out, PaymentType paymentType)
+    {
+        this.enterTime = in;
+        this.outTime = out;
+        this.paymentType = paymentType;
+    }
+
+    public Ticket(int ID)
+    {
+        this.ID = ID;
+    }
+
+
     /**
     * constructs the Ticket
     * @param paymentType sets up the variable created for the Parking Garage
@@ -67,15 +80,7 @@ public class Ticket {
     {
         return ID;
     }
-    
-    /**
-    * changes the ID to the int we're taking in
-    * @param ID an int we are using for the ID of the ticket for the customers
-    */
-    public void setID(int i)
-    {
-        ID = i;
-    }
+
     
     /**
     * display method for the customers to see what time they checked in and what their car number is
@@ -88,21 +93,17 @@ public class Ticket {
     }
 
     /**
-    * calculates total duration a car was parked in the parking garage
-    * @param randHour the random time created for checkout
-    * @param outTime the time the car is trying to leave
-    * @param hour the duration between enterTime and outTime
-    * @param enterTime time of entry to the Parking Garage
-    * @param outTime time of leaving the Parking Garage
-    * @param total total payment
-    * @param paymentType variable created for payment system
+    * calculates total duration a car was parked in the parking garage and makes the total equal to the payment total
+    *
     */
     public void calculateTotal() {
 
-        Random rand = new Random();
-        int randHour = rand.nextInt(11)+13;
-        outTime = LocalTime.of(randHour,0);
+        if(this.outTime == null) {
 
+            Random rand = new Random();
+            int randHour = rand.nextInt(11) + 13;
+            outTime = LocalTime.of(randHour, 0);
+        }
         int hour = (int)Duration.between(enterTime,outTime).toHours();
 
         total = paymentType.getPaymentTotal(hour);

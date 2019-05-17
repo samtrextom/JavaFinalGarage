@@ -31,8 +31,14 @@ public class Garage {
     
     /**
      * Constructor Setter for our payment structure
-     * @param paymentStructure name
+     * @param openTickets ArrayList<Ticket>
      */
+
+    public void addOpenTickets(ArrayList<Ticket> openTickets)
+    {
+        this.openTickets = openTickets;
+    }
+
     public void setPaymentStructure(PaymentStructure paymentStructure)
     {
         this.paymentStructure = paymentStructure;
@@ -40,14 +46,14 @@ public class Garage {
     
     /**
      * Returns the name of the payment structure
-     * @param paymentStructure name
+     *
      * @return paymentStructure name
      */
     public String getGarageName(){return paymentStructure.getName(); }
 
     /**
     * adding a car/ticket to the ArrayList
-    * @param openTickets the arraylist of open tickets in the garage
+    * @param c Ticket
     */
     public void addTicket(Ticket c)
     {
@@ -56,7 +62,7 @@ public class Garage {
     
     /**
     * traverses the arraylist to local the ticket number assigned to the vehicle
-    * @param openTickets the arraylist of open tickets in the garage
+    * @param ID int
     * @return new Ticket
     * @return new LostFee
     */
@@ -76,7 +82,7 @@ public class Garage {
     
     /**
      * displays the openTickets for the parking garage
-     * @param openTickets the arraylist of open tickets in the garage
+     *
      */
     public void displayAll()
     {
@@ -89,7 +95,7 @@ public class Garage {
     
     /**
     * adds one to totalLostTickets count
-    * @param totalLostTickets number of lost tickets gone through the parking garage
+    *
     */
 
     public void addLostTicket()
@@ -99,7 +105,7 @@ public class Garage {
 
     /**
     * adds tickets to closedTickets arraylist
-    * @param closedTickets arraylist of closed tickets in the garage
+    * @@param ticket Ticket
     */
     public void addClosedTicket(Ticket ticket)
     {
@@ -108,7 +114,7 @@ public class Garage {
 
     /**
     * creates a file tickets.txt to record the various ticket sales of the parking garage
-    * @param ticketDataStorage
+    *
     */
     public void openGarage()
     {
@@ -132,10 +138,7 @@ public class Garage {
 
     /**
     * checks to see if there is any open tickets, then calculates total of the sales of the parking garage
-    * @param openTickets the arraylist of open tickets in the garage
-    * @param totalLostTickets number of lost tickets gone through the parking garage
-    * @param closedTickets arraylist of closed tickets in the garage
-    * @param ticketDataStorage 
+    *
     * @return the total of sales from the tickets
     * @return adds totals of sales to the arrayList ticketDataStorage
     */
@@ -169,7 +172,7 @@ public class Garage {
 
     /**
     * creates a singleton design pattern for the garage
-    * @param Garage 
+    *
     * @return a new Garage for the customer to use
     */
     public static Garage getInstance()
